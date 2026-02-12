@@ -8,12 +8,12 @@
 #include <FirebaseClient.h>
 #include <Servo.h>
 
-#define WIFI_SSID "WKC-time"
-#define WIFI_PASSWORD "wkc0122876591"
+#define WIFI_SSID "ID"
+#define WIFI_PASSWORD "PASS"
 #define DATABASE_URL "dualaxissolartracker-46ecc-default-rtdb.asia-southeast1.firebasedatabase.app"
 #define Web_API_KEY "AIzaSyCvBimHDvLLCZ07f4ee0Ubl7fPyvTui0Ik"
-#define USER_EMAIL "wongweixiang@graduate.utm.my"
-#define USER_PASS "WeiXiang03"
+#define USER_EMAIL "EMAIL"
+#define USER_PASS "PASS"
 
 WiFiSSLClient ssl_client;
 AsyncClientClass aClient(ssl_client);
