@@ -1,0 +1,17 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+
+# Environment Variables & Secrets (CRITICAL)
+.env
+serviceAccountKey.json
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

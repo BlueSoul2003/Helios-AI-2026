@@ -1,0 +1,27 @@
+{
+  "control_commands": {
+    "mode": "ai",
+    "target_h": 90,
+    "target_v": 0
+  },
+  "tracker_status": {
+    "all_data": "46, 28, 802, 819, 180, 0",
+    "all_data_order": "tl, tr, bl, br, servoh, servov",
+    "ldr_values": {
+      "bl": 0,
+      "br": 0,
+      "tl": 0,
+      "tr": 0
+    },
+    "mode": "auto",
+    "power": {
+      "current": 0,
+      "voltage": 0
+    }
+  },
+  "weather_data": {
+    "cloud_cover": 75,
+    "condition": "broken clouds",
+    "suggestion": "Local algorithm: Safe mode due to clouds."
+  }
+}
