@@ -34,7 +34,7 @@ int ldrtl = 0;
 int ldrtr = 1;
 int ldrbl = 2;
 int ldrbr = 3; 
-int tl, tr, bl, br, tol, dtime;
+int tl, tr, bl, br, tol, dtime; //tol to reduce energy and reduce unnecessary monements
 bool isRaining = false;
 int pinRain = 7;               //rain detector
 int manualMode = 0;            // 0 = Auto, 1 = Manual
@@ -113,7 +113,7 @@ void AutoTracking() {
   // Vertical
     if (abs(dvert) > tol) {
       if (avt > avd) {
-        servoV = ++servoV;
+        servoV = ++servoV; // Swap -- and ++ if direction is inverted
         if (servoV > servoVLimitHigh) servoV = servoVLimitHigh;
       } else if (avt < avd) {
         servoV = --servoV;
@@ -125,7 +125,7 @@ void AutoTracking() {
   // Horizontal
     if (abs(dhoriz) > tol) {
      if (avl > avr) {
-        servoH = --servoH; // Swap -- and ++ if direction is inverted
+        servoH = --servoH; 
         if (servoH < servoHLimitLow) servoH = servoHLimitLow;
       } else if (avl < avr) {
         servoH = ++servoH;
