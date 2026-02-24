@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helios AI | Solar Tracker Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="dashboard">
+        <header>
+            <div class="logo">
+                <span class="icon">☀️</span>
+                <h1>Helios AI</h1>
+            </div>
+            <div class="header-right">
+                <div class="clock-badge glass" id="current-time">
+                    <span class="time">--:--:--</span>
+                    <span class="date">---, -- ---</span>
+                </div>
+                <div class="status-badge" id="conn-status">
+                    <span class="dot"></span>
+                    <span class="text">Connecting...</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="main-grid">
+            <!-- Weather Data Card -->
+            <div class="card glass weather-card">
+                <div class="card-header">
+                    <h2>Weather Insights</h2>
+                    <span class="icon">☁️</span>
+                </div>
+                <div class="data-grid">
+                    <div class="data-item">
+                        <span class="label">Condition</span>
+                        <span class="value" id="weather-condition">--</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Temperature</span>
+                        <span class="value" id="temp-value">--°C</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Humidity</span>
+                        <span class="value" id="humidity-value">--%</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Cloud Cover</span>
+                        <span class="value" id="cloud-cover">--%</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Rain Status</span>
+                        <span class="value" id="rain-status">--</span>
+                    </div>
+                </div>
+                <div class="suggestion-box">
+                    <p id="weather-suggestion">Scanning environmental conditions...</p>
+                </div>
+            </div>
+
+            <!-- Solar Tracker Visualization Card -->
+            <div class="card glass visualization-card">
+                <div class="card-header">
+                    <h2>Live Tracking</h2>
+                    <div class="mode-toggle" id="tracker-mode">--</div>
+                </div>
+                <div class="viz-container">
+                    <div class="panel-viz" id="panel-viz">
+                        <!-- SVG Animation here -->
+                        <svg viewBox="0 0 200 200" width="100%" height="100%">
+                            <defs>
+                                <linearGradient id="panel-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3973EF;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <g id="panel-group" transform="rotate(0, 100, 100)">
+                                <rect x="50" y="70" width="100" height="60" rx="4" fill="url(#panel-grad)" />
+                                <line x1="50" y1="90" x2="150" y2="90" stroke="rgba(255,255,255,0.1)"
+                                    stroke-width="1" />
+                                <line x1="50" y1="110" x2="150" y2="110" stroke="rgba(255,255,255,0.1)"
+                                    stroke-width="1" />
+                                <line x1="100" y1="70" x2="100" y2="130" stroke="rgba(255,255,255,0.1)"
+                                    stroke-width="1" />
+                            </g>
+                            <circle cx="100" cy="100" r="3" fill="#facc15" />
+                        </svg>
+                    </div>
+                    <div class="angles-display">
+                        <div class="angle-item">
+                            <span class="label">Target H</span>
+                            <span class="value" id="target-h">0°</span>
+                        </div>
+                        <div class="angle-item">
+                            <span class="label">Target V</span>
+                            <span class="value" id="target-v">0°</span>
+                        </div>
+                        <div class="angle-item highlight">
+                            <span class="label">Servo H</span>
+                            <span class="value" id="servo-h">--°</span>
+                        </div>
+                        <div class="angle-item highlight">
+                            <span class="label">Servo V</span>
+                            <span class="value" id="servo-v">--°</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LDR Values Card -->
+            <div class="card glass sensor-card">
+                <div class="card-header">
+                    <h2>LDR Irradiance</h2>
+                    <span class="icon">💡</span>
+                </div>
+                <div class="sensor-grid">
+                    <div class="sensor-item tr">
+                        <span class="label">TR</span>
+                        <div class="gauge-container">
+                            <div class="gauge-bar" id="lux-tr-bar" style="width: 0%"></div>
+                        </div>
+                        <span class="value" id="lux-tr">0 lux</span>
+                    </div>
+                    <div class="sensor-item tl">
+                        <span class="label">TL</span>
+                        <div class="gauge-container">
+                            <div class="gauge-bar" id="lux-tl-bar" style="width: 0%"></div>
+                        </div>
+                        <span class="value" id="lux-tl">0 lux</span>
+                    </div>
+                    <div class="sensor-item br">
+                        <span class="label">BR</span>
+                        <div class="gauge-container">
+                            <div class="gauge-bar" id="lux-br-bar" style="width: 0%"></div>
+                        </div>
+                        <span class="value" id="lux-br">0 lux</span>
+                    </div>
+                    <div class="sensor-item bl">
+                        <span class="label">BL</span>
+                        <div class="gauge-container">
+                            <div class="gauge-bar" id="lux-bl-bar" style="width: 0%"></div>
+                        </div>
+                        <span class="value" id="lux-bl">0 lux</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Raw Data Integration Card -->
+            <div class="card glass raw-data-card">
+                <div class="card-header">
+                    <h2>System Data Stream</h2>
+                    <span class="icon">📊</span>
+                </div>
+                <div class="raw-data-container">
+                    <div class="raw-field">
+                        <span class="label">Raw String</span>
+                        <code id="raw-data-string">Waiting for data stream...</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
