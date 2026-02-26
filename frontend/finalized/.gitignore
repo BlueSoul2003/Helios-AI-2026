@@ -1,0 +1,8 @@
+# Ignore local configuration files holding sensitive API keys/URLs
+config.js
+
+# Node modules
+node_modules/
+
+# Mac OS files
+.DS_Store
