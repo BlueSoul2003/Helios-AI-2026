@@ -6,7 +6,7 @@ import json
 import random
 import os
 from dotenv import load_dotenv
-import weather_service  # 你的天气服务模块
+import weather_service  # Import the new weather service
 from datetime import datetime
 
 # --- 1. 配置 (Configuration) ---
@@ -143,3 +143,4 @@ if __name__ == "__main__":
         print("等待 60 秒进行下次决策...")
 
         time.sleep(60)
+
