@@ -119,7 +119,7 @@ if __name__ == "__main__":
                 "mode": decision.get('mode')
             })
 
-            # 🚀 6. 核心新增：记录到历史节点 (History Logging)
+            # 🚀 6. 记录到历史节点 (History Logging)
             history_entry = {
                 "timestamp": current_time,
                 "weather": weather_now,
@@ -141,4 +141,5 @@ if __name__ == "__main__":
 
         # 每 60 秒运行一次
         print("等待 60 秒进行下次决策...")
+
         time.sleep(60)
