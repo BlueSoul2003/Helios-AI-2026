@@ -10,8 +10,8 @@
 
 #define WIFI_SSID "ID"
 #define WIFI_PASSWORD "PASS"
-#define DATABASE_URL "dualaxissolartracker-46ecc-default-rtdb.asia-southeast1.firebasedatabase.app"
-#define Web_API_KEY "AIzaSyCvBimHDvLLCZ07f4ee0Ubl7fPyvTui0Ik"
+#define DATABASE_URL "YOUR_PROJECT_ID.asia-southeast1.firebasedatabase.app"  // TODO: Replace with your Firebase DB URL
+#define Web_API_KEY "YOUR_FIREBASE_WEB_API_KEY"  // TODO: Replace with your Firebase Web API Key
 #define USER_EMAIL "EMAIL"
 #define USER_PASS "PASS"
 

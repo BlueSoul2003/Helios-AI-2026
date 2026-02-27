@@ -15,3 +15,9 @@ serviceAccountKey.json
 # OS
 .DS_Store
 Thumbs.db
+
+# Frontend - local config with real Firebase URLs (do NOT commit)
+frontend/config.js
+
+# Compiled Flutter web output - contains hardcoded Firebase URLs
+docs/
