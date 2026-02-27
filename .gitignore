@@ -19,5 +19,5 @@ Thumbs.db
 # Frontend - local config with real Firebase URLs (do NOT commit)
 frontend/config.js
 
-# Compiled Flutter web output - contains hardcoded Firebase URLs
-docs/
+# docs/config.js is intentionally tracked (safe placeholder, no real keys)
+# docs/ is used for GitHub Pages and must remain tracked
