@@ -24,7 +24,7 @@ Our architecture is designed for low-latency IoT control and intelligent decisio
 * **Google Firebase (Realtime Database):** Chosen as our central state manager. It perfectly solves the latency and polling overhead of traditional REST APIs, allowing our Hardware, AI, and Frontend to sync in milliseconds.
 * **Google Gemini API:** The predictive reasoning engine hosted via a Python backend.
 * **Flutter:** Used to build our cross-platform, responsive dashboard that visualizes real-time Firebase data beautifully.
-* **Hardware Edge:** Arduino UNO R4 WiFi, SG90 Micro Servos (lightweight prototyping), LDR Sensors, and a custom dual-axis mechanism fabricated using a Bambu Lab A1 3D printer.
+* **Hardware Edge:** Arduino UNO R4 WiFi, MG90S Micro Servos (lightweight prototyping), LDR Sensors, and a custom dual-axis mechanism fabricated using a Bambu Lab A1 3D printer.
 
 ## 🚧 5. Major Technical Challenge & Implementation
 **The Challenge:** Asynchronous State Desynchronization. 
