@@ -1,7 +1,7 @@
 # ☀️ Helios AI: Smart Predictive Solar Tracker
 **Project for KitaHack 2026 | Team: The Singularity**
 
-[![Demonstration Video](https://img.shields.io/badge/Watch-Demo_Video-FF0000?style=for-the-badge&logo=youtube)](#) 
+[![Demonstration Video](https://img.shields.io/badge/Watch-Demo_Video-FF0000?style=for-the-badge&logo=youtube)](Https://youtu.be/wrzM8a77L20?si=acl_4LMIk42pGloc) 
 
 ## 📖 1. Introduction & Problem Statement
 Static solar panels lose up to 40% of potential energy by not facing the sun. While traditional Dual-Axis Trackers exist, they rely purely on physical LDR (Light Dependent Resistor) sensors. This creates the **"Net-Positive Energy Flaw"**: on cloudy or overcast days, the tracker "hunts" for light, causing the servo motors to consume more electricity than the solar panels generate. 
@@ -24,15 +24,16 @@ Our architecture is designed for low-latency IoT control and intelligent decisio
 * **Google Firebase (Realtime Database):** Chosen as our central state manager. It perfectly solves the latency and polling overhead of traditional REST APIs, allowing our Hardware, AI, and Frontend to sync in milliseconds.
 * **Google Gemini API:** The predictive reasoning engine hosted via a Python backend.
 * **Flutter:** Used to build our cross-platform, responsive dashboard that visualizes real-time Firebase data beautifully.
-* **Hardware Edge:** Arduino UNO R4 WiFi, MG90S Micro Servos (lightweight prototyping), LDR Sensors, and a custom dual-axis mechanism fabricated using a Bambu Lab A1 3D printer.
+* **Hardware Edge:** Arduino UNO R4 WiFi, **MG90S Micro Servos** (lightweight prototyping), LDR Sensors, and a custom dual-axis mechanism fabricated using a Bambu Lab A1 3D printer.
 
 ## 🚧 5. Major Technical Challenge & Implementation
 **The Challenge:** Asynchronous State Desynchronization. 
 Initially, the Arduino hardware and the Python (Gemini) backend were fighting for control over the servo motors, causing severe hardware jitter and latency.
+
 **The Resolution:** We implemented a "Single Source of Truth" architecture using **Firebase**. We decoupled the hardware from the AI. The Arduino strictly reads the `control/mode` node from Firebase (either MANUAL or AI_AUTO). The Python script independently runs Gemini analysis and updates Firebase. This architectural decision eliminated all jitter and made the system incredibly stable.
 
 ## 🗣 6. User Feedback & Iterations
-During our prototyping phase, we gathered feedback from 3 target users (homeowners with solar interests and physics peers) and iterated:
+During our prototyping phase, we gathered feedback from target users (homeowners with solar interests and physics peers) and iterated:
 1. **Insight:** "The raw voltage/LDR data on the screen is too confusing for normal users."
    * **Iteration:** We updated the Flutter dashboard to include intuitive Circular Gauges and a dedicated "AI Insight Card" that explains Gemini's decision in plain English.
 2. **Insight:** "What happens if there's a strong wind? The panels act like sails."
@@ -47,12 +48,12 @@ During our prototyping phase, we gathered feedback from 3 target users (homeowne
 ### 🚀 The Helios AI Scaling Roadmap
 
 * **Phase 1: Proof of Concept & Validation (Current - Hackathon)**
-  * ✅ Build a functional dual-axis prototype using Arduino UNO R4, SG90 servos, and 3D printed parts.
+  * ✅ Build a functional dual-axis prototype using Arduino UNO R4, **MG90S servos**, and 3D printed parts.
   * ✅ Establish real-time sync via Firebase and integrate Gemini API for basic weather/LDR decision-making.
   * ⏳ Validate the "Net-Positive Energy Flaw" hypothesis against static panels.
 
 * **Phase 2: "Swarm" Architecture & Edge Upgrades (Months 3-6)**
-  * **Hardware Upgrade:** Transition from SG90 micro servos to industrial NEMA stepper motors capable of moving commercial 400W solar panels.
+  * **Hardware Upgrade:** Transition from **MG90S micro servos** to industrial NEMA stepper motors capable of moving commercial 400W solar panels.
   * **Swarm Intelligence:** Instead of every panel calling the Gemini API (which is costly and slow), implement a "Master-Slave" mesh network. The central Firebase hub makes **one** Gemini API call and broadcasts the optimized angle to a "swarm" of 100+ local trackers via Firebase Cloud Messaging.
   * **Predictive Maintenance:** Train the AI to detect anomalies (e.g., if predicted power output > actual output, the App alerts the user: *"Panel 3 might be dirty or damaged"*).
 
@@ -64,6 +65,7 @@ During our prototyping phase, we gathered feedback from 3 target users (homeowne
 * **Phase 4: Commercialization & Smart Grid Integration (Year 2+)**
   * Target B2B solar farms, offering Helios AI as a retrofitting kit for existing static solar arrays.
   * Integrate with national smart grid APIs to flatten panels during low-demand hours or optimize angles based on real-time electricity pricing.
+
 ## 🚀 8. How to Run
 1. **Hardware:** Flash the code in `/hardware/firmware` to the Arduino UNO R4 WiFi via the Arduino IDE.
 2. **Backend:**
